@@ -18,7 +18,8 @@ cd chainlink-sepolia
 ```
 Create docker instance with password
 ```shell
-sudo docker run --name cl-postgres \
+sudo docker run \
+--name cl-postgres \
 -e POSTGRES_PASSWORD=mysecretpassword \
 -p 5432:5432 -d postgres
 ```
@@ -26,7 +27,13 @@ sudo docker run --name cl-postgres \
 
 Start Chainlink Node after PostgreSQL server is running (modify config.toml if you wish to modify network parameters)
 ```shell
-sudo docker run --platform linux/x86_64/v8 --name chainlink -v $HOME/chainlink-sepolia:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
+sudo docker run \
+--name chainlink \
+--platform linux/x86_64/v8 -v $HOME/chainlink-sepolia:/chainlink -it \
+-p 6688:6688 \
+--add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node \
+-config /chainlink/config.toml \
+-secrets /chainlink/secrets.toml start
 ```
 :warning: Make sure you also install PostgreSQL: :warning:
 
