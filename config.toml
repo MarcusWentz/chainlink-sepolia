@@ -10,9 +10,9 @@ SecureCookies = false
 HTTPSPort = 0
 
 [[EVM]]
-ChainID = '167005'
+ChainID = '11155111'
 
 [[EVM.Nodes]]
-Name = 'Taiko'
-WSURL = 'wss://ws.test.taiko.xyz'
-HTTPURL = 'https://rpc.test.taiko.xyz'
+Name = 'Sepolia'
+WSURL = 'wss://ethereum-sepolia-rpc.publicnode.com'
+HTTPURL = 'https://1rpc.io/sepolia'
