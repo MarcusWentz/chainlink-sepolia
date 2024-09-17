@@ -4,7 +4,7 @@ name = "Get > Int256 - (TOML)"
 externalJobID = "d6919224-e605-40b6-a957-0599ee3a4365"
 forwardingAllowed = false
 maxTaskDuration = "0s"
-contractAddress = "0x7053af6475b2a11Bff65E697E349d66e6580d371"
+contractAddress = "0x7D00c26902f506B904F4870fFeF13DafD8977c54"
 minContractPaymentLinkJuels = "0"
 observationSource = """
     decode_log   [type="ethabidecodelog"
@@ -23,7 +23,7 @@ observationSource = """
                   abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)"
                   data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\":   $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_data)}"
                   ]
-    submit_tx    [type="ethtx" to="0x7053af6475b2a11Bff65E697E349d66e6580d371" data="$(encode_tx)"]
+    submit_tx    [type="ethtx" to="0x7D00c26902f506B904F4870fFeF13DafD8977c54" data="$(encode_tx)"]
 
     decode_log -> decode_cbor -> fetch -> parse -> multiply -> encode_data -> encode_tx -> submit_tx
 """

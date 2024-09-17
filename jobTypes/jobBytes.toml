@@ -4,7 +4,7 @@ name = "Get > Bytes"
 externalJobID = "e0f10647-ce9d-47bb-8b7e-0d3f9ac97b60"
 forwardingAllowed = false
 maxTaskDuration = "0s"
-contractAddress = "0x7053af6475b2a11Bff65E697E349d66e6580d371"
+contractAddress = "0x7D00c26902f506B904F4870fFeF13DafD8977c54"
 minContractPaymentLinkJuels = "0"
 observationSource = """
     decode_log   [type="ethabidecodelog"
@@ -24,7 +24,7 @@ observationSource = """
                 data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\":   $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_large)}"
                 ]
 
-    submit_tx    [type="ethtx" to="0x7053af6475b2a11Bff65E697E349d66e6580d371" data="$(encode_tx)"]
+    submit_tx    [type="ethtx" to="0x7D00c26902f506B904F4870fFeF13DafD8977c54" data="$(encode_tx)"]
 
     decode_log -> decode_cbor -> fetch -> parse  -> encode_large -> encode_tx -> submit_tx
 """
