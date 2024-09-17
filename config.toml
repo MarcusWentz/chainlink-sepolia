@@ -1,0 +1,18 @@
+RootDir = '~/chainlink'
+[Log]
+Level = 'warn'
+
+[WebServer]
+AllowOrigins = '\*'
+SecureCookies = false
+
+[WebServer.TLS]
+HTTPSPort = 0
+
+[[EVM]]
+ChainID = '167005'
+
+[[EVM.Nodes]]
+Name = 'Taiko'
+WSURL = 'wss://ws.test.taiko.xyz'
+HTTPURL = 'https://rpc.test.taiko.xyz'
