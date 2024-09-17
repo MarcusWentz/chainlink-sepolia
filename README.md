@@ -23,7 +23,19 @@ sudo docker run \
 -e POSTGRES_PASSWORD=mysecretpassword \
 -p 5432:5432 -d postgres
 ```
-3. Test Chainlink Node v2.2.0 with TOML files
+3. Modify WSURL and HTTPURL values in file
+```
+config.toml
+```
+here:
+```
+WSURL = <WSS_ENDPOINT>
+HTTPURL = <HTTPS_ENDPOINT>
+```
+We use private RPC endpoints to avoid rate limiting since TOML files are static. 
+They cannot directly use .env variables unless you write custom scripts. 
+
+4. Test Chainlink Node v2.2.0 with TOML files
 
 Start Chainlink Node after PostgreSQL server is running (modify config.toml if you wish to modify network parameters)
 ```shell
@@ -51,7 +63,7 @@ sudo kill 25537
 ```
 :warning: Note: if there is an issue with your Chainlink node, try deleting the docker Chainlink node's image and containers. ⚠️
 
-4. Interact with Chainlink node GUI in web browser URL:
+5. Interact with Chainlink node GUI in web browser URL:
 
 http://localhost:6688/
 

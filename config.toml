@@ -14,5 +14,7 @@ ChainID = '11155111'
 
 [[EVM.Nodes]]
 Name = 'Sepolia'
-WSURL = 'wss://ethereum-sepolia-rpc.publicnode.com'
-HTTPURL = 'https://1rpc.io/sepolia'
+# Note: TOML files are static. They cannot directly use .env variables unless you write custom scripts.
+# Modify WSURL and HTTPURL values to be private RPC endpoints to avoid rate limiting.
+WSURL = <WSS_ENDPOINT>
+HTTPURL = <HTTPS_ENDPOINT>
