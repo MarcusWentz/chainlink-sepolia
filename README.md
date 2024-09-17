@@ -7,7 +7,7 @@ Chainlink oracle on Sepolia blockchain which supports API uint256 GET requests.
 1. Clone this repository.
 :warning: Do this command from the home root directory to avoid path issues by doing "cd". :warning: 
 ```shell
-cd && /
+cd && \
 git clone git@github.com:MarcusWentz/chainlink-sepolia.git
 ```
 2. Start PostgreSQL server instance with Docker
