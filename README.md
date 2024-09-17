@@ -18,7 +18,9 @@ cd chainlink-sepolia
 ```
 Create docker instance with password
 ```shell
-sudo docker run --name cl-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+sudo docker run --name cl-postgres \
+-e POSTGRES_PASSWORD=mysecretpassword \
+-p 5432:5432 -d postgres
 ```
 3. Test Chainlink Node v2.2.0 with TOML files
 
@@ -51,3 +53,11 @@ http://localhost:6688/
 Running a Chainlink Node - Configure your node
 
 https://docs.chain.link/chainlink-nodes/v1/running-a-chainlink-node
+
+## Delete docker images and contrainers
+
+```shell
+docker rm -vf $(docker ps -aq) && docker rmi -f $(docker images -aq)
+```
+
+https://stackoverflow.com/a/44785784
