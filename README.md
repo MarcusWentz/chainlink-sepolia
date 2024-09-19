@@ -10,7 +10,19 @@ Chainlink oracle on Sepolia blockchain which supports API uint256 GET requests.
 cd && \
 git clone git@github.com:MarcusWentz/chainlink-sepolia.git
 ```
-2. Start PostgreSQL server instance with Docker
+2. Modify WSURL and HTTPURL values in file
+```
+config.toml
+```
+here:
+```
+WSURL = <WSS_ENDPOINT>
+HTTPURL = <HTTPS_ENDPOINT>
+```
+We use private RPC endpoints to avoid rate limiting since TOML files are static. 
+They cannot directly use .env variables unless you write custom scripts. 
+
+3. Start PostgreSQL server instance with Docker
 
 Enter directory
 ```shell
@@ -23,17 +35,6 @@ sudo docker run \
 -e POSTGRES_PASSWORD=mysecretpassword \
 -p 5432:5432 -d postgres
 ```
-3. Modify WSURL and HTTPURL values in file
-```
-config.toml
-```
-here:
-```
-WSURL = <WSS_ENDPOINT>
-HTTPURL = <HTTPS_ENDPOINT>
-```
-We use private RPC endpoints to avoid rate limiting since TOML files are static. 
-They cannot directly use .env variables unless you write custom scripts. 
 
 4. Test Chainlink Node v2.2.0 with TOML files
 
