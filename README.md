@@ -81,3 +81,17 @@ docker rm -vf $(docker ps -aq) && docker rmi -f $(docker images -aq)
 ```
 
 https://stackoverflow.com/a/44785784
+
+## Database Connection Error Docker and PostgreSQL
+
+If you get the error:
+```
+opening db: failed to open db: failed to connect to
+host=host.docker.internal user=postgres database=postgres: dial error
+(timeout: dial tcp <IP_ADDRESS>:5432: connect: connection timed out)
+```
+open your firewall:
+```
+sudo ufw allow 5432/tcp
+```
+then try again.
